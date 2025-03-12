@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-MAINTAINER Philippe Le Van (@plv on twitter)
+MAINTAINER Yann Le Doaré (@yledoare on github)
 
 RUN apt-get update -qq && \
 	apt-get install -y proftpd proftpd-mod-crypto && \
