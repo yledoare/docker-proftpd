@@ -5,15 +5,15 @@ services:
         build: ..
         volumes:
          - ./home:/home
-           #         - ./proftpd-tls.conf:/etc/proftpd/conf.d/proftpd-tls.conf:ro
-           #- ./key.pem:/etc/proftpd/key.pem:ro
-           #- ./cert.pem:/etc/proftpd/cert.pem:ro
+         - ./proftpd-tls.conf:/etc/proftpd/conf.d/proftpd-tls.conf:ro
+         - ./key.pem:/etc/proftpd/key.pem:ro
+         - ./cert.pem:/etc/proftpd/cert.pem:ro
         environment:
             FTP_LIST: "user1:passwd1"
             USERADD_OPTIONS: "-o --gid 33 --uid 33"
             PASSIVE_MIN_PORT: 50000
             PASSIVE_MAX_PORT: 50100
         ports:
-                # - "2222:2222"
-            - "21:21"
+            - "2222:21"
+              # - "21:21"
               #- "50000-50100:50000-50100"
