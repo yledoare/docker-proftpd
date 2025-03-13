@@ -9,7 +9,9 @@ Simple way to install a proftp server on an host.
 * In tester-ssl/docker-compose.yml:
 
 uncomment lines
+
 change yourdmain.com to your domain
+
 change 1.2.3.4 to your IP
 
 * Then run :
