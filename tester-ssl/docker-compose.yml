@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+    proftpd-tls:
+        build: 
+          context: ..
+          dockerfile: Dockerfile
+        volumes:
+         - ./home:/home
+           #- ./proftpd-tls.conf:/etc/proftpd/conf.d/proftpd-tls.conf:ro
+           #- /etc/letsencrypt/live/yourdmain.com/privkey.pem:/etc/proftpd/key.pem:ro
+           #- /etc/letsencrypt/live/yourdmain.com/fullchain.pem:/etc/proftpd/cert.pem:ro
+        environment:
+            FTP_LIST: "user:password"
+            USERADD_OPTIONS: "-o --gid 1000 --uid 1000"
+            PASSIVE_MIN_PORT: 50000
+            PASSIVE_MAX_PORT: 50100
+            MASQUERADE_ADDRESS: "1.2.3.4"
+        ports:
+            - "21:21"
+            - "50000-50100:50000-50100"
